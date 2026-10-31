@@ -52,17 +52,18 @@ body::before{animation:none;transform:none;filter:none;will-change:auto}
 @media(prefers-reduced-motion:reduce){.blackhole-particles{display:none}}
 
 /* Motion is scoped to the introduction, AMA video and Reddit carousel. */
-#resume.intro-motion{overflow:clip}
-#resume.intro-motion .intro-copy>*{--intro-offset:clamp(-90px,-6vw,-32px)}
-#resume.intro-motion .portrait{--intro-offset:clamp(32px,6vw,90px)}
-#resume.intro-motion .intro-copy>*,#resume.intro-motion .portrait{opacity:0;transform:translateX(var(--intro-offset));transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.22,.61,.36,1)}
+html:has(#resume.intro-motion){overflow-x:clip}
+#resume.intro-motion{container-type:inline-size}
+#resume.intro-motion .intro-copy>*{--intro-offset:calc((100cqw - 100vw)/2 - 100%)}
+#resume.intro-motion .portrait{--intro-offset:calc((100vw - 100cqw)/2 + 100%)}
+#resume.intro-motion .intro-copy>*,#resume.intro-motion .portrait{opacity:0;transform:translateX(var(--intro-offset));transition:opacity 2.2s ease,transform 2.2s cubic-bezier(.22,.61,.36,1)}
 #resume.intro-motion.is-intro-visible .intro-copy>*,#resume.intro-motion.is-intro-visible .portrait{opacity:1;transform:translateX(0)}
 .ama-stage{perspective:1200px}
-.ama-stage .video-depth{opacity:0;transform:translateZ(-380px);transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.22,.61,.36,1)}
+.ama-stage .video-depth{opacity:0;transform:translateZ(-2400px);transition:opacity 2.2s ease,transform 2.2s cubic-bezier(.22,.61,.36,1)}
 .ama-stage .video-depth.is-visible{opacity:1;transform:translateZ(0)}
 #operations>h2{font-size:clamp(30px,3.2vw,40px);margin-bottom:14px}
 #operations>.subheading{font-size:clamp(16px,1.5vw,18px);margin-bottom:25px}
-.post-carousel.is-enhanced{--slide-width:min(78vw,1280px);--slide-gap:clamp(12px,1.2vw,24px);position:relative;left:50%;width:calc(100vw - 24px);transform:translateX(-50%);overflow:hidden}
+.post-carousel.is-enhanced{--slide-width:min(54.6vw,896px);--slide-gap:clamp(12px,1.2vw,24px);position:relative;left:50%;width:calc(100vw - 24px);transform:translateX(-50%);overflow:hidden}
 .post-carousel.is-enhanced .post-track{display:flex;gap:var(--slide-gap);transition:transform .75s cubic-bezier(.22,.61,.36,1);will-change:transform}
 .post-carousel.is-enhanced .post-track.no-transition{transition:none}
 .post-carousel.is-enhanced .image-button{flex:0 0 var(--slide-width);min-width:0}
@@ -73,7 +74,7 @@ body::before{animation:none;transform:none;filter:none;will-change:auto}
 .carousel-dot[aria-current="true"]{background:var(--ink)}
 .carousel-toggle{display:grid;place-items:center;width:30px;height:30px;padding:0;margin-left:7px;border:1px solid var(--line);border-radius:50%;background:#0b0c1080;color:var(--ink)}
 .carousel-toggle svg{width:12px;height:12px;fill:currentColor}
-@media(max-width:650px){.post-carousel.is-enhanced{--slide-width:82vw}#operations>.subheading{margin-bottom:21px}}
+@media(max-width:650px){.post-carousel.is-enhanced{--slide-width:57.4vw}#operations>.subheading{margin-bottom:21px}}
 @media(prefers-reduced-motion:reduce){#resume.intro-motion .intro-copy>*,#resume.intro-motion .portrait,.ama-stage .video-depth{opacity:1;transform:none;transition:none}.post-carousel.is-enhanced .post-track{transition:none}}
 </style>
 </head>
